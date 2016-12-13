@@ -1,3 +1,6 @@
+/**
+ * aaa
+ */
 package com.study.ssm.service.impl;
 import com.study.ssm.mapper.ScoreMapper;
 import com.study.ssm.model.Score;
