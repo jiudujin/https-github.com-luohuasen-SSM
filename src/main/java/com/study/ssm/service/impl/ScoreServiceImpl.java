@@ -1,14 +1,12 @@
 package com.study.ssm.service.impl;
-
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.study.ssm.mapper.ScoreMapper;
 import com.study.ssm.model.Score;
 import com.study.ssm.service.ScoreService;
-@Service("scoreService") 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import java.util.List;
+@SuppressWarnings("SpringJavaAutowiringInspection")
+@Service("scoreService")
 public class ScoreServiceImpl implements ScoreService {
     @Autowired
     private ScoreMapper scoreMapper;

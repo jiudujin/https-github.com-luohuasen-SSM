@@ -101,7 +101,7 @@
           <groupId>javax.servlet</groupId>  
           <artifactId>servlet-api</artifactId> 
           <scope>provided</scope> 
-          <version>3.0</version>  
+          <version>2.5</version>
       </dependency>  
       <dependency>  
           <groupId>javax.servlet</groupId>  
@@ -179,23 +179,15 @@
                  <docencoding>UTF-8</docencoding>  
                  <show>private</show>  
              </configuration>  
-         </plugin>   
-         <!-- 部署至本机 -->  
-         <plugin>  
-             <groupId>org.codehaus.cargo</groupId>  
-             <artifactId>cargo-maven2-plugin</artifactId>  
-             <version>1.0</version>  
-             <configuration>  
-                 <container>  
-                     <containerId>tomcat6x</containerId>  
-                     <home>D:\WebServer\apache-tomcat-6.0.39</home>  
-                 </container>  
-                 <configuration>  
-                     <type>existing</type>  
-                     <home>D:\WebServer\apache-tomcat-6.0.39</home>  
-                 </configuration>  
-             </configuration>  
-         </plugin>   
-     </plugins> 
+         </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+                <source>1.6</source>
+                <target>1.6</target>
+            </configuration>
+        </plugin>
+    </plugins>
   </build>
 </project>
