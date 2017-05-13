@@ -3,11 +3,9 @@ package com.study.ssm.model;
 public class Student {
     private Integer id;
 
-    private String name;
+    private Integer personId;
 
-    private String sex;
-
-    private String age;
+    private Integer squadId;
 
     public Integer getId() {
         return id;
@@ -17,27 +15,19 @@ public class Student {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public Integer getPersonId() {
+        return personId;
     }
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+    public void setPersonId(Integer personId) {
+        this.personId = personId;
     }
 
-    public String getSex() {
-        return sex;
+    public Integer getSquadId() {
+        return squadId;
     }
 
-    public void setSex(String sex) {
-        this.sex = sex == null ? null : sex.trim();
-    }
-
-    public String getAge() {
-        return age;
-    }
-
-    public void setAge(String age) {
-        this.age = age == null ? null : age.trim();
+    public void setSquadId(Integer squadId) {
+        this.squadId = squadId;
     }
 }

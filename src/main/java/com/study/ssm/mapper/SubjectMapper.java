@@ -1,6 +1,7 @@
 package com.study.ssm.mapper;
-import java.util.List;
+
 import com.study.ssm.model.Subject;
+
 public interface SubjectMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -13,10 +14,4 @@ public interface SubjectMapper {
     int updateByPrimaryKeySelective(Subject record);
 
     int updateByPrimaryKey(Subject record);
-    
-    void clean();
-    
-    int count();
-    
-    List<Subject> list();
 }

@@ -3,10 +3,12 @@
 <mapper namespace="com.study.ssm.mapper.SubjectMapper" >
   <resultMap id="BaseResultMap" type="com.study.ssm.model.Subject" >
     <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="subject_id" property="subjectId" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="fullname" property="fullname" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, name
+    id, subject_id, name, fullname
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -19,8 +21,10 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.study.ssm.model.Subject" >
-    insert into subject (id, name)
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR})
+    insert into subject (id, subject_id, name, 
+      fullname)
+    values (#{id,jdbcType=INTEGER}, #{subjectId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
+      #{fullname,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.study.ssm.model.Subject" >
     insert into subject
@@ -28,43 +32,51 @@
       <if test="id != null" >
         id,
       </if>
+      <if test="subjectId != null" >
+        subject_id,
+      </if>
       <if test="name != null" >
         name,
+      </if>
+      <if test="fullname != null" >
+        fullname,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
+      <if test="subjectId != null" >
+        #{subjectId,jdbcType=INTEGER},
+      </if>
       <if test="name != null" >
         #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="fullname != null" >
+        #{fullname,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.study.ssm.model.Subject" >
     update subject
     <set >
+      <if test="subjectId != null" >
+        subject_id = #{subjectId,jdbcType=INTEGER},
+      </if>
       <if test="name != null" >
         name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="fullname != null" >
+        fullname = #{fullname,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.study.ssm.model.Subject" >
     update subject
-    set name = #{name,jdbcType=VARCHAR}
+    set subject_id = #{subjectId,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
+      fullname = #{fullname,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  
-  <delete id="clean">
-    truncate TABLE subject;
-  </delete>
-  
-  <select id="count" resultType="java.lang.Integer">
-     select COUNT(id) from subject;
-  </select>
-  
-  <select id="list" resultMap="BaseResultMap">
-     select * from subject;
-  </select>
 </mapper>

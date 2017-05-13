@@ -1,7 +1,5 @@
 package com.study.ssm.service;
 
-import java.util.List;
-
 import com.study.ssm.model.Student;
 
 public interface StudentService {
@@ -16,10 +14,9 @@ public interface StudentService {
     int updateByPrimaryKeySelective(Student record);
 
     int updateByPrimaryKey(Student record);
-    
+
     void clean();
-    
+
     int count();
-    
-    List<Student> list();
+
 }

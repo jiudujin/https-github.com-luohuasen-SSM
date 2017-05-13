@@ -3,12 +3,11 @@
 <mapper namespace="com.study.ssm.mapper.StudentMapper" >
   <resultMap id="BaseResultMap" type="com.study.ssm.model.Student" >
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="sex" property="sex" jdbcType="VARCHAR" />
-    <result column="age" property="age" jdbcType="VARCHAR" />
+    <result column="person_id" property="personId" jdbcType="INTEGER" />
+    <result column="squad_id" property="squadId" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, name, sex, age
+    id, person_id, squad_id
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -21,10 +20,10 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.study.ssm.model.Student" >
-    insert into student (id, name, sex, 
-      age)
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, 
-      #{age,jdbcType=VARCHAR})
+    insert into student (id, person_id, squad_id
+      )
+    values (#{id,jdbcType=INTEGER}, #{personId,jdbcType=INTEGER}, #{squadId,jdbcType=INTEGER}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.study.ssm.model.Student" >
     insert into student
@@ -32,63 +31,41 @@
       <if test="id != null" >
         id,
       </if>
-      <if test="name != null" >
-        name,
+      <if test="personId != null" >
+        person_id,
       </if>
-      <if test="sex != null" >
-        sex,
-      </if>
-      <if test="age != null" >
-        age,
+      <if test="squadId != null" >
+        squad_id,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="name != null" >
-        #{name,jdbcType=VARCHAR},
+      <if test="personId != null" >
+        #{personId,jdbcType=INTEGER},
       </if>
-      <if test="sex != null" >
-        #{sex,jdbcType=VARCHAR},
-      </if>
-      <if test="age != null" >
-        #{age,jdbcType=VARCHAR},
+      <if test="squadId != null" >
+        #{squadId,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.study.ssm.model.Student" >
     update student
     <set >
-      <if test="name != null" >
-        name = #{name,jdbcType=VARCHAR},
+      <if test="personId != null" >
+        person_id = #{personId,jdbcType=INTEGER},
       </if>
-      <if test="sex != null" >
-        sex = #{sex,jdbcType=VARCHAR},
-      </if>
-      <if test="age != null" >
-        age = #{age,jdbcType=VARCHAR},
+      <if test="squadId != null" >
+        squad_id = #{squadId,jdbcType=INTEGER},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.study.ssm.model.Student" >
     update student
-    set name = #{name,jdbcType=VARCHAR},
-      sex = #{sex,jdbcType=VARCHAR},
-      age = #{age,jdbcType=VARCHAR}
+    set person_id = #{personId,jdbcType=INTEGER},
+      squad_id = #{squadId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  
-  <delete id="clean">
-    truncate TABLE student;
-  </delete>
-  
-  <select id="count" resultType="java.lang.Integer">
-     select COUNT(id) from student;
-  </select>
-  
-  <select id="list" resultMap="BaseResultMap">
-     select * from student;
-  </select>
 </mapper>

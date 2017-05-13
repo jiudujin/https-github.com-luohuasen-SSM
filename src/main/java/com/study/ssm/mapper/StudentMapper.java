@@ -1,7 +1,7 @@
 package com.study.ssm.mapper;
 
-import java.util.List;
 import com.study.ssm.model.Student;
+
 public interface StudentMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -14,10 +14,4 @@ public interface StudentMapper {
     int updateByPrimaryKeySelective(Student record);
 
     int updateByPrimaryKey(Student record);
-    
-    void clean();
-    
-    int count();
-    
-    List<Student> list();
 }

@@ -1,7 +1,5 @@
 package com.study.ssm.service;
 
-import java.util.List;
-
 import com.study.ssm.model.Subject;
 
 public interface SubjectService {
@@ -16,10 +14,5 @@ public interface SubjectService {
     int updateByPrimaryKeySelective(Subject record);
 
     int updateByPrimaryKey(Subject record);
-    
-    void clean();
-    
-    int count();
-    
-    List<Subject> list();
+
 }
