@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-姓名： ${student.name}
+姓名： ${person.name}
 </body>
 </html>

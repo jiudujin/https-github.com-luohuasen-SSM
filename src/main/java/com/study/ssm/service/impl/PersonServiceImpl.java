@@ -4,13 +4,16 @@ import com.study.ssm.mapper.PersonMapper;
 import com.study.ssm.model.Person;
 import com.study.ssm.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * Created by luohuasen on 2017/5/13.
  */
+@Service
 public class PersonServiceImpl implements PersonService {
+
     @Autowired
     private PersonMapper personMapper;
 

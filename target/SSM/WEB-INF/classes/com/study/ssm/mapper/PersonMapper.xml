@@ -84,7 +84,7 @@
     truncate  person;
   </update>
 
-  <select id="count" >
+  <select id="count" resultType="java.lang.Integer">
     SELECT count(id) from person;
   </select>
 
