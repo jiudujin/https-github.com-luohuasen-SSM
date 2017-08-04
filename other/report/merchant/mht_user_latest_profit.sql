@@ -1,0 +1,1 @@
+SELECT * FROM mht_user_latest_profit
